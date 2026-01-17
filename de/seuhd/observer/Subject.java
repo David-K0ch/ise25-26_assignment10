@@ -26,4 +26,6 @@ public abstract class Subject {
             o.update(this);
         }
     }
+
+    public abstract int getValue();
 }

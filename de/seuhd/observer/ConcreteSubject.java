@@ -11,6 +11,13 @@ public class ConcreteSubject extends Subject {
 
     public void setValue(int value) {
         this.value_ = value;
+        System.out.printf("Value of subject updated to %o%n", value);
+        System.out.printf("Sending update to observers...%n");
         this.notifyObservers();
+    }
+
+    @Override
+    public int getValue() {
+        return value_;
     }
 }

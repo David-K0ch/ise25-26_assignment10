@@ -11,6 +11,7 @@ public class ConcreteObserver implements Observer {
     @Override
     public void update(Subject subject) {
         subject_ = subject;
+        System.out.printf("Observer received update from subject: New value is %o %n", subject_.getValue());
     }
 
     public void detach() {
