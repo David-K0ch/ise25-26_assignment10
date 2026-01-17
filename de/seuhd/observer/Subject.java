@@ -1,17 +1,29 @@
 package de.seuhd.observer;
+import java.util.ArrayList;
 
 public abstract class Subject {
-    // TODO: Add fields.
+    ArrayList<Observer> observers;
+
+    public Subject() {
+        this.observers = new ArrayList<>();
+    }
 
     void attach(Observer observer) {
-        // TODO: Implement attach method.
+        if (!observers.contains(observer)) {
+            observers.add(observer);
+        }
     }
 
     void detach(Observer observer) {
-        // TODO: Implement detach method.
+        observers.remove(observer);
     }
 
     protected void notifyObservers() {
-        // TODO: Implement fireUpdate method.
+        if (observers.isEmpty()) {
+            return;
+        }
+        for (Observer o: observers) {
+            o.update(this);
+        }
     }
 }
